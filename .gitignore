@@ -1,4 +1,22 @@
 *.zip
-Gizmo Tools/__pycache__/
 *.URL
 *.lnk
+
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+
+# Build output (extension zips from `blender --command extension build`)
+dist/
+
+# Blender backups
+*.blend1
+*.blend2
+*.blend@
+
+# VS Code settings
+.vscode
+
+# Zed Editor settings
+.zed
