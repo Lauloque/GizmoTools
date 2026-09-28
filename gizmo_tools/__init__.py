@@ -3,7 +3,6 @@
 from math import radians
 
 import bpy
-import rna_keymap_ui
 from bpy.props import FloatProperty
 from bpy.types import (
     AddonPreferences,
