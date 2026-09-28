@@ -4,6 +4,7 @@ import bpy
 from bpy.types import Operator
 
 from .. import __package__ as base_package
+from ..prefs import get_preferences
 
 
 class VIEW3D_OT_decease_gizmo_size(Operator):
@@ -13,7 +14,7 @@ class VIEW3D_OT_decease_gizmo_size(Operator):
     def execute(self, context):
 
         prefs = context.preferences
-        addon_prefs = prefs.addons[base_package].preferences
+        addon_prefs = get_preferences()
         view = prefs.view
         gs = view.gizmo_size
         print("Gizmo size =", gs)
@@ -32,7 +33,7 @@ class VIEW3D_OT_incease_gizmo_size(Operator):
     def execute(self, context):
 
         prefs = context.preferences
-        addon_prefs = prefs.addons[base_package].preferences
+        addon_prefs = get_preferences()
         view = prefs.view
         gs = view.gizmo_size
         print("Gizmo size =", gs)
