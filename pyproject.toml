@@ -1,0 +1,17 @@
+[project]
+name = "gizmotools"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "fake-bpy-module-4-5>=20260730",
+]
+
+[tool.basedpyright]
+pythonVersion = "3.11"
+venvPath = "."
+venv = ".venv"
+reportMissingModuleSource = "none"
+typeCheckingMode = "standard"
