@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-import bpy
 from bpy.types import Operator
 
-from .. import __package__ as base_package
 from ..prefs import get_preferences
 
 

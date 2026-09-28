@@ -9,10 +9,6 @@ from .operators.move import *
 from .operators.rotate import *
 from .prefs import VIEW3D_PT_gizmo_size_preferences
 
-# -----------------------------------------------------------------------------
-#    Gizmo Menu
-# -----------------------------------------------------------------------------
-
 
 class VIEW3D_MT_gizmo_size_menu(Menu):
     bl_label = "Gizmo"
