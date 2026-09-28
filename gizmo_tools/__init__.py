@@ -4,7 +4,6 @@ from math import radians
 
 import bpy
 from bpy.props import FloatProperty
-from bpy.stub_internal.rna_enums import OperatorReturnItems
 from bpy.types import (
     AddonPreferences,
     Menu,
@@ -34,7 +33,7 @@ class VIEW3D_OT_decease_gizmo_size(Operator):
     bl_idname = "view3d.decease_gizmo_size"
     bl_label = "Decrease Gizmo Size"
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
 
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
@@ -58,7 +57,7 @@ class VIEW3D_OT_incease_gizmo_size(Operator):
     bl_idname = "view3d.incease_gizmo_size"
     bl_label = "Increase Gizmo Size"
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
 
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
@@ -87,7 +86,7 @@ class VIEW3D_OT_move_local_x(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -108,7 +107,7 @@ class VIEW3D_OT_move_local_nx(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -129,7 +128,7 @@ class VIEW3D_OT_move_local_y(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -150,7 +149,7 @@ class VIEW3D_OT_move_local_ny(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -171,7 +170,7 @@ class VIEW3D_OT_move_local_z(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -192,7 +191,7 @@ class VIEW3D_OT_move_local_nz(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.translate
@@ -213,7 +212,7 @@ class VIEW3D_OT_rotate_local_x(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -234,7 +233,7 @@ class VIEW3D_OT_rotate_local_nx(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -255,7 +254,7 @@ class VIEW3D_OT_rotate_local_y(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -276,7 +275,7 @@ class VIEW3D_OT_rotate_local_ny(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -297,7 +296,7 @@ class VIEW3D_OT_rotate_local_z(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -318,7 +317,7 @@ class VIEW3D_OT_rotate_local_nz(Operator):
     def poll(cls, context):
         return context.active_object is not None
 
-    def execute(self, context) -> set[OperatorReturnItems]:
+    def execute(self, context):
         prefs = context.preferences
         addon_prefs = prefs.addons[__name__].preferences
         ot = bpy.ops.transform.rotate
@@ -344,7 +343,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=100,
         precision=0,
         subtype="PIXEL",
-    )  # pyright: ignore[reportInvalidTypeForm]
+    )
 
     # Translate Increment value
     tinc: FloatProperty(
@@ -355,7 +354,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         soft_max=100,
         step=1,
         precision=3,
-    )  # pyright: ignore[reportInvalidTypeForm]
+    )
 
     # Rotate Increment value
     rinc: FloatProperty(
@@ -367,7 +366,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=1,
         precision=3,
         subtype="ANGLE",
-    )  # pyright: ignore[reportInvalidTypeForm]
+    )
 
     # Draws addon preferences
 

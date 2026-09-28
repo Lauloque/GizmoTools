@@ -15,3 +15,7 @@ venvPath = "."
 venv = ".venv"
 reportMissingModuleSource = "none"
 typeCheckingMode = "standard"
+
+reportInvalidTypeForm = "none"          # bpy.props annotations
+reportIncompatibleMethodOverride = "none"  # operators' execute overrides have special return types
+reportOptionalMemberAccess = "none"     # layout is always set in draw()
