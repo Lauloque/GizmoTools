@@ -10,20 +10,6 @@ from bpy.types import (
     Operator,
 )
 
-bl_info = {
-    "name": "Gizmo Tools",
-    "description": "Allows you to do simple gizmo operations using keyboard shortcuts.",
-    "author": 'Loïc "L0Lock" Dautry',
-    "version": (0, 1, 2),
-    "blender": (3, 2, 0),
-    "location": "View3D/UV Editor → Header → View → Gizmo",
-    "warning": "Under development.",
-    "wiki_url": "https://github.com/L0Lock/GizmoTools",
-    "tracker_url": "https://github.com/L0Lock/GizmoTools/issues",
-    "category": "Interface",
-}
-
-
 # -----------------------------------------------------------------------------
 #    Operator : Decrease size
 # -----------------------------------------------------------------------------
