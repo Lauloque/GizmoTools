@@ -30,7 +30,7 @@ bl_info = {
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_decease_gizmo_size(bpy.types.Operator):
+class VIEW3D_OT_decease_gizmo_size(Operator):
     bl_idname = "view3d.decease_gizmo_size"
     bl_label = "Decrease Gizmo Size"
 
@@ -54,7 +54,7 @@ class VIEW3D_OT_decease_gizmo_size(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_incease_gizmo_size(bpy.types.Operator):
+class VIEW3D_OT_incease_gizmo_size(Operator):
     bl_idname = "view3d.incease_gizmo_size"
     bl_label = "Increase Gizmo Size"
 
@@ -78,7 +78,7 @@ class VIEW3D_OT_incease_gizmo_size(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_x(bpy.types.Operator):
+class VIEW3D_OT_move_local_x(Operator):
     bl_idname = "view3d.move_local_x"
     bl_label = "Move on the local X axis"
     bl_options = {"REGISTER", "UNDO"}
@@ -100,7 +100,7 @@ class VIEW3D_OT_move_local_x(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_nx(bpy.types.Operator):
+class VIEW3D_OT_move_local_nx(Operator):
     bl_idname = "view3d.move_local_nx"
     bl_label = "Move on the local -X axis"
 
@@ -121,7 +121,7 @@ class VIEW3D_OT_move_local_nx(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_y(bpy.types.Operator):
+class VIEW3D_OT_move_local_y(Operator):
     bl_idname = "view3d.move_local_y"
     bl_label = "Move on the local Y axis"
 
@@ -142,7 +142,7 @@ class VIEW3D_OT_move_local_y(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_ny(bpy.types.Operator):
+class VIEW3D_OT_move_local_ny(Operator):
     bl_idname = "view3d.move_local_ny"
     bl_label = "Move on the local -Y axis"
 
@@ -163,7 +163,7 @@ class VIEW3D_OT_move_local_ny(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_z(bpy.types.Operator):
+class VIEW3D_OT_move_local_z(Operator):
     bl_idname = "view3d.move_local_z"
     bl_label = "Move on the local Z axis"
 
@@ -184,7 +184,7 @@ class VIEW3D_OT_move_local_z(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_move_local_nz(bpy.types.Operator):
+class VIEW3D_OT_move_local_nz(Operator):
     bl_idname = "view3d.move_local_nz"
     bl_label = "Move on the local -Z axis"
 
@@ -205,7 +205,7 @@ class VIEW3D_OT_move_local_nz(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_x(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_x(Operator):
     bl_idname = "view3d.rotate_local_x"
     bl_label = "Rotate on the local X axis"
 
@@ -226,7 +226,7 @@ class VIEW3D_OT_rotate_local_x(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_nx(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_nx(Operator):
     bl_idname = "view3d.rotate_local_nx"
     bl_label = "Rotate on the local -X axis"
 
@@ -247,7 +247,7 @@ class VIEW3D_OT_rotate_local_nx(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_y(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_y(Operator):
     bl_idname = "view3d.rotate_local_y"
     bl_label = "Rotate on the local Y axis"
 
@@ -268,7 +268,7 @@ class VIEW3D_OT_rotate_local_y(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_ny(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_ny(Operator):
     bl_idname = "view3d.rotate_local_ny"
     bl_label = "Rotate on the local -Y axis"
 
@@ -289,7 +289,7 @@ class VIEW3D_OT_rotate_local_ny(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_z(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_z(Operator):
     bl_idname = "view3d.rotate_local_z"
     bl_label = "Rotate on the local Z axis"
 
@@ -310,7 +310,7 @@ class VIEW3D_OT_rotate_local_z(bpy.types.Operator):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_OT_rotate_local_nz(bpy.types.Operator):
+class VIEW3D_OT_rotate_local_nz(Operator):
     bl_idname = "view3d.rotate_local_nz"
     bl_label = "Rotate on the local -Z axis"
 
@@ -344,7 +344,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=100,
         precision=0,
         subtype="PIXEL",
-    )# pyright: ignore[reportInvalidTypeForm]
+    )  # pyright: ignore[reportInvalidTypeForm]
 
     # Translate Increment value
     tinc: FloatProperty(
@@ -355,7 +355,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         soft_max=100,
         step=1,
         precision=3,
-    )# pyright: ignore[reportInvalidTypeForm]
+    )  # pyright: ignore[reportInvalidTypeForm]
 
     # Rotate Increment value
     rinc: FloatProperty(
@@ -367,7 +367,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=1,
         precision=3,
         subtype="ANGLE",
-    )# pyright: ignore[reportInvalidTypeForm]
+    )  # pyright: ignore[reportInvalidTypeForm]
 
     # Draws addon preferences
 
@@ -386,7 +386,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
 # -----------------------------------------------------------------------------
 
 
-class VIEW3D_MT_gizmo_size_menu(bpy.types.Menu):
+class VIEW3D_MT_gizmo_size_menu(Menu):
     bl_label = "Gizmo"
     bl_idname = "VIEW3D_MT_gizmo_menu"
 
