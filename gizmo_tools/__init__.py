@@ -344,7 +344,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=100,
         precision=0,
         subtype="PIXEL",
-    )
+    )# pyright: ignore[reportInvalidTypeForm]
 
     # Translate Increment value
     tinc: FloatProperty(
@@ -355,7 +355,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         soft_max=100,
         step=1,
         precision=3,
-    )
+    )# pyright: ignore[reportInvalidTypeForm]
 
     # Rotate Increment value
     rinc: FloatProperty(
@@ -367,7 +367,7 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         step=1,
         precision=3,
         subtype="ANGLE",
-    )
+    )# pyright: ignore[reportInvalidTypeForm]
 
     # Draws addon preferences
 
