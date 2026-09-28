@@ -1,0 +1,11 @@
+schema_version = "1.0.0"
+id = "gizmo_tools"
+version = "2.0.0"
+name = "Gizmo Tools"
+tagline = "Change gizmo size and transform with keyboard shortcuts"
+maintainer = "Loïc \"Lauloque\" Dautry"
+type = "add-on"
+blender_version_min = "4.5.0"
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["3D View", "User Interface"]
+website = "https://github.com/Lauloque/GizmoTools"
