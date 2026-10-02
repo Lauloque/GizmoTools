@@ -1,10 +1,22 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+import logging
+import platform
 from math import radians
 
 import bpy
-from bpy.props import FloatProperty
+from bpy.props import BoolProperty, FloatProperty
 from bpy.types import AddonPreferences
+
+
+def update_developer_print(self, context):
+    """Toggle logging based on preferences"""
+    from .bl_logger import logger
+
+    if self.developer_print:
+        logger.setLevel(logging.DEBUG)
+    else:
+        logger.setLevel(logging.CRITICAL + 1)
 
 
 class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
@@ -45,6 +57,18 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         subtype="ANGLE",
     )
 
+    # Developer prints
+    developer_print: BoolProperty(
+        name="Toggle developer log in System Console",
+        description=(
+            "Helps with debugging issues in the addon.\n"
+            "Please use this for any bug report.\n"
+            "Keep it disabled for better performances."
+        ),
+        default=False,
+        update=update_developer_print,
+    )
+
     # Draws addon preferences
 
     def draw(self, context):
@@ -55,6 +79,18 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
         row.prop(self, "inc", toggle=True)
         row.prop(self, "tinc", toggle=True)
         row.prop(self, "rinc", toggle=True)
+
+        row = layout.row()
+        row.prop(self, "developer_print")
+        if "Windows" in platform.system():
+            row.operator("wm.console_toggle", icon="CONSOLE", text="")
+        else:
+            split = layout.split(factor=0.35)
+            split.label(text="")
+            split.label(
+                text="For Mac and Linux, you need to start Blender from the terminal to see the logs.",
+                icon="INFO",
+            )
 
 
 def get_preferences():
