@@ -53,4 +53,5 @@ Available in the Viewport and the UV Editor.
 
 ## To-do list
 
-- have the shortcuts settings in the addon's preferences
+- have adaptative labels in addon's keymap editor
+- have adaptative descriptions in menus
