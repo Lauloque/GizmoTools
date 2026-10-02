@@ -5,6 +5,7 @@ import platform
 from math import radians
 
 import bpy
+import rna_keymap_ui
 from bpy.props import BoolProperty, FloatProperty
 from bpy.types import AddonPreferences
 
@@ -92,6 +93,39 @@ class VIEW3D_PT_gizmo_size_preferences(AddonPreferences):
                 icon="INFO",
             )
 
+        box = layout.box()
+        box.label(text="Keymaps")
+
+        draw_keymaps(box)
+
 
 def get_preferences():
     return bpy.context.preferences.addons[__package__].preferences
+
+
+def draw_keymaps(box):
+    wm = bpy.context.window_manager
+    kc = wm.keyconfigs.user
+
+    for km in kc.keymaps:
+        # filter kmi's from gizmo tools only
+        keymap_items = [
+            kmi for kmi in km.keymap_items if kmi.idname.startswith("view3d.gizmo_")
+        ]
+
+        if not keymap_items:
+            continue
+
+        box.label(text=km.name)
+        box.context_pointer_set("keymap", km)
+
+        for kmi in keymap_items:
+            row = box.row()
+            rna_keymap_ui.draw_kmi(
+                ["ADDON", "USER", "DEFAULT"],
+                kc,
+                km,
+                kmi,
+                row,
+                1,
+            )

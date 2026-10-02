@@ -63,13 +63,11 @@ def register():
         addon_keymaps.append((km, kmi))
 
         # GIZMO SIZE -
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_DOWN", value="PRESS")
         kmi.properties.positive = False
         addon_keymaps.append((km, kmi))
 
         # GIZMO SIZE MODAL
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
             "view3d.gizmo_size_modal", "RIGHTMOUSE", "PRESS", alt=True
         )
@@ -86,7 +84,6 @@ def register():
         ]
 
         for key, axis, modifiers in movement_bindings:
-            km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
             kmi = km.keymap_items.new("view3d.gizmo_move", key, "PRESS", **modifiers)
             kmi.properties.axis = axis
             addon_keymaps.append((km, kmi))
@@ -102,7 +99,6 @@ def register():
         ]
 
         for key, axis, modifiers in rotation_bindings:
-            km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
             kmi = km.keymap_items.new("view3d.gizmo_rotate", key, "PRESS", **modifiers)
             kmi.properties.axis = axis
             addon_keymaps.append((km, kmi))
