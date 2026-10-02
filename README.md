@@ -4,7 +4,7 @@
 
 -----
 
-[![ko-fi](Prez/SupportOnKofi.jpg)](https://ko-fi.com/l0lock) [![uTip](Prez/SupportOnUtip.jpg)](https://www.utip.io/l0lock) [![ArtStation](Prez/BuyOnArtstation.jpg)](https://artstn.co/m/276y) [![Gumroad](Prez/BuyOnGumroad.jpg)](https://gum.co/gizmotools)
+[![ko-fi](Prez/SupportOnKofi.jpg)](https://ko-fi.com/lauloque) [![Gumroad](Prez/BuyOnGumroad.jpg)](https://gum.co/gizmotools)
 
 Allows you to perform simple gizmo actions using keyboard shortcuts.
 
@@ -18,11 +18,14 @@ Allows you to perform simple gizmo actions using keyboard shortcuts.
 
 ![Demo Gizmo](Prez/Gizmo_Transform_Demo.gif)
 
-- Translation mode: <kbd>&#9095; Alt</kbd>
-- Rotation mode: <kbd>&#9095; Alt</kbd><kbd>&#8679; Shift</kbd>
-- X: <kbd>&#8592; Left arrow</kbd><kbd>&#8594; Right arrow</kbd>
-- Y: <kbd>&#8593; Up arrow</kbd><kbd>&#8595; Down arrow</kbd>
-- Z: <kbd>&#8670; Page up</kbd><kbd>&#8671; Page down</kbd>
+Combine the translation or rotation modificator key with the axis keys:
+
+- Translation modificator: <kbd>⎇ Alt</kbd>
+- Rotation modificator: <kbd>⎇ Alt</kbd><kbd>⇧ Shift</kbd>
+- Axis keys:
+  - X: <kbd>← Left arrow</kbd><kbd>→ Right arrow</kbd>
+  - Y: <kbd>↑ Up arrow</kbd><kbd>↓ Down arrow</kbd>
+  - Z: <kbd>⇞ Page up</kbd><kbd>⇟ Page down</kbd>
 
 **Edit the shortcuts to your liking from the Preferences window:**
 
@@ -46,7 +49,7 @@ Available in the Viewport and the UV Editor.
 
 - Click the "install" button and select GizmoTools.zip
 
-- Check *Gizmo Tools* in the addon list
+- Check _Gizmo Tools_ in the addon list
 
 ## To-do list
 
