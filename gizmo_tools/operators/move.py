@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import bpy
+import numpy as np
 from bpy.props import EnumProperty
 from bpy.types import Operator
 
@@ -29,6 +30,6 @@ class VIEW3D_OT_gizmo_move(Operator):
         tinc = get_preferences().tinc
         vector = tuple(c * tinc for c in AXES[self.axis])
 
-        logger.info(f"Gizmo Move by {vector}")
+        logger.info(f"Gizmo Move by {np.round(vector, 3)}")
 
         return bpy.ops.transform.translate(value=vector, orient_type="LOCAL")

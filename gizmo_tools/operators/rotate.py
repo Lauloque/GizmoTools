@@ -33,7 +33,7 @@ class VIEW3D_OT_gizmo_rotate(Operator):
             angle = -angle
         axis = self.axis[-1]
 
-        logger.info(f"Gizmo Rotate by {angle} on axis {axis}")
+        logger.info(f"Gizmo Rotate {axis} by {round(angle, 3)}")
 
         return bpy.ops.transform.rotate(
             value=angle, orient_axis=axis, orient_type="LOCAL"
