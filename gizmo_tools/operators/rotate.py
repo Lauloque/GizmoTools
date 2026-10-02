@@ -11,7 +11,8 @@ from .constants import AXES
 
 class VIEW3D_OT_gizmo_rotate(Operator):
     bl_idname = "view3d.gizmo_rotate"
-    bl_label = "Rotate the gizmo's selection on a given axis and direction"
+    bl_label = "Gizmo Rotate"
+    bl_description = "Rotate the gizmo's selection on a given axis and direction"
     bl_options = {"REGISTER"}
 
     axis: EnumProperty(
