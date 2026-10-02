@@ -16,8 +16,8 @@ class VIEW3D_MT_gizmo_size_menu(Menu):
 
     def draw(self, context):
         layout = self.layout
-        layout.operator("view3d.incease_gizmo_size", icon="ZOOM_IN")
-        layout.operator("view3d.decease_gizmo_size", icon="ZOOM_OUT")
+        layout.operator("view3d.gizmo_size", text="Increase Gizmo Size", icon="ZOOM_IN").positive = True
+        layout.operator("view3d.gizmo_size", text="Decrease Gizmo Size", icon="ZOOM_OUT").positive = False
 
 
 def draw_gizmo_menu(self, context):
@@ -31,8 +31,7 @@ addon_keymaps = []
 classes = (
     VIEW3D_PT_gizmo_size_preferences,
     VIEW3D_MT_gizmo_size_menu,
-    VIEW3D_OT_incease_gizmo_size,
-    VIEW3D_OT_decease_gizmo_size,
+    VIEW3D_OT_gizmo_size,
     VIEW3D_OT_move_local_x,
     VIEW3D_OT_move_local_nx,
     VIEW3D_OT_move_local_y,
@@ -61,14 +60,16 @@ def register():
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon
     if kc:
+        # GIZMO +
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.incease_gizmo_size", type="PAGE_UP", value="PRESS"
-        )  # GIZMO +
+        kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_UP", value="PRESS")
+        kmi.properties.positive = True
+
+        # GIZMO -
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.decease_gizmo_size", type="PAGE_DOWN", value="PRESS"
-        )  # GIZMO -
+        kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_DOWN", value="PRESS")
+        kmi.properties.positive = False
+
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
             "view3d.move_local_x", type="LEFT_ARROW", alt=True, value="PRESS"
