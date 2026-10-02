@@ -10,18 +10,13 @@ from ..prefs import get_preferences
 class VIEW3D_OT_gizmo_size(Operator):
     bl_idname = "view3d.gizmo_size"
     bl_label = "Change Gizmo Size"
+    bl_description = "Increase or decrease the gizmo size"
 
     positive: BoolProperty(
         name="Direction",
         description="Direction of action. Positive if enabled, otherwise negative",
         default=True,
     )
-
-    @classmethod
-    def description(cls, context, properties):
-        return (
-            "Increase gizmo size" if properties.direction > 0 else "Decrease gizmo size"
-        )
 
     def execute(self, context):
         view = context.preferences.view
