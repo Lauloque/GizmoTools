@@ -20,12 +20,12 @@ Allows you to perform simple gizmo actions using keyboard shortcuts.
 
 Combine the translation or rotation modificator key with the axis keys:
 
-- Translation modificator: <kbd>⎇ Alt</kbd>
-- Rotation modificator: <kbd>⎇ Alt</kbd><kbd>⇧ Shift</kbd>
+- Translation mode: <kbd>⎇ Alt</kbd>
+- Rotation mode: <kbd>⎇ Alt</kbd><kbd>⇧ Shift</kbd>
 - Axis keys:
-  - X: <kbd>← Left arrow</kbd><kbd>→ Right arrow</kbd>
-  - Y: <kbd>↑ Up arrow</kbd><kbd>↓ Down arrow</kbd>
-  - Z: <kbd>⇞ Page up</kbd><kbd>⇟ Page down</kbd>
+    - X: <kbd>← Left arrow</kbd><kbd>&#8594; Right arrow</kbd>
+    - Y: <kbd>↑ Up arrow</kbd><kbd>&#8595; Down arrow</kbd>
+    - Z: <kbd>&#8670; Page up</kbd><kbd>&#8671; Page down</kbd>
 
 **Edit the shortcuts to your liking from the Preferences window:**
 
