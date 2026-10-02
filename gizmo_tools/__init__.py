@@ -56,127 +56,56 @@ def register():
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon
     if kc:
-        # GIZMO +
+        # GIZMO SIZE +
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_UP", value="PRESS")
         kmi.properties.positive = True
+        addon_keymaps.append((km, kmi))
 
-        # GIZMO -
+        # GIZMO SIZE -
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_DOWN", value="PRESS")
         kmi.properties.positive = False
+        addon_keymaps.append((km, kmi))
 
         # GIZMO SIZE MODAL
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
             "view3d.gizmo_size_modal", "RIGHTMOUSE", "PRESS", alt=True
         )
-
-        # MOVE +X
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="LEFT_ARROW", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "+X"
-
-        # MOVE -X
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="RIGHT_ARROW", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "-X"
-
-        # MOVE +Y
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="UP_ARROW", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "+Y"
-
-        # MOVE -Y
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="DOWN_ARROW", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "-Y"
-
-        # MOVE +Z
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="PAGE_UP", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "+Z"
-
-        # MOVE -Z
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_move", type="PAGE_DOWN", alt=True, value="PRESS"
-        )
-        kmi.properties.axis = "-Z"
-
-        # ROTATE +X
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate",
-            type="LEFT_ARROW",
-            alt=True,
-            shift=True,
-            value="PRESS",
-        )
-        kmi.properties.axis = "+X"
-
-        # ROTATE -X
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate",
-            type="RIGHT_ARROW",
-            alt=True,
-            shift=True,
-            value="PRESS",
-        )
-        kmi.properties.axis = "-X"
-
-        # ROTATE +Y
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate",
-            type="UP_ARROW",
-            alt=True,
-            shift=True,
-            value="PRESS",
-        )
-        kmi.properties.axis = "+Y"
-
-        # ROTATE -Y
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate",
-            type="DOWN_ARROW",
-            alt=True,
-            shift=True,
-            value="PRESS",
-        )
-        kmi.properties.axis = "-Y"
-
-        # ROTATE +Z
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate", type="PAGE_UP", alt=True, shift=True, value="PRESS"
-        )
-        kmi.properties.axis = "+Z"
-
-        # ROTATE -Z
-        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
-        kmi = km.keymap_items.new(
-            "view3d.gizmo_rotate",
-            type="PAGE_DOWN",
-            alt=True,
-            shift=True,
-            value="PRESS",
-        )
-        kmi.properties.axis = "-Z"
-
         addon_keymaps.append((km, kmi))
+
+        # Movements (X Y Z)
+        movement_bindings = [
+            ("LEFT_ARROW", "+X", {"alt": True}),
+            ("RIGHT_ARROW", "-X", {"alt": True}),
+            ("UP_ARROW", "+Y", {"alt": True}),
+            ("DOWN_ARROW", "-Y", {"alt": True}),
+            ("PAGE_UP", "+Z", {"alt": True}),
+            ("PAGE_DOWN", "-Z", {"alt": True}),
+        ]
+
+        for key, axis, modifiers in movement_bindings:
+            km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
+            kmi = km.keymap_items.new("view3d.gizmo_move", key, "PRESS", **modifiers)
+            kmi.properties.axis = axis
+            addon_keymaps.append((km, kmi))
+
+        # Rotations (X Y Z)
+        rotation_bindings = [
+            ("LEFT_ARROW", "+X", {"alt": True, "shift": True}),
+            ("RIGHT_ARROW", "-X", {"alt": True, "shift": True}),
+            ("UP_ARROW", "+Y", {"alt": True, "shift": True}),
+            ("DOWN_ARROW", "-Y", {"alt": True, "shift": True}),
+            ("PAGE_UP", "+Z", {"alt": True, "shift": True}),
+            ("PAGE_DOWN", "-Z", {"alt": True, "shift": True}),
+        ]
+
+        for key, axis, modifiers in rotation_bindings:
+            km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
+            kmi = km.keymap_items.new("view3d.gizmo_rotate", key, "PRESS", **modifiers)
+            kmi.properties.axis = axis
+            addon_keymaps.append((km, kmi))
 
 
 def unregister():
