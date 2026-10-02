@@ -22,6 +22,7 @@ class VIEW3D_MT_gizmo_size_menu(Menu):
         layout.operator(
             "view3d.gizmo_size", text="Decrease Gizmo Size", icon="ZOOM_OUT"
         ).positive = False
+        layout.operator("view3d.gizmo_size_modal", icon="GIZMO")
 
 
 def draw_gizmo_menu(self, context):
@@ -38,6 +39,7 @@ classes = (
     VIEW3D_OT_gizmo_size,
     VIEW3D_OT_gizmo_move,
     VIEW3D_OT_gizmo_rotate,
+    VIEW3D_OT_gizmo_size_modal,
 )
 
 
@@ -63,6 +65,12 @@ def register():
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new("view3d.gizmo_size", type="PAGE_DOWN", value="PRESS")
         kmi.properties.positive = False
+
+        # GIZMO SIZE MODAL
+        km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
+        kmi = km.keymap_items.new(
+            "view3d.gizmo_size_modal", "RIGHTMOUSE", "PRESS", alt=True
+        )
 
         # MOVE +X
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
