@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from math import radians
-
 import bpy
 from bpy.props import EnumProperty
 from bpy.types import Operator
