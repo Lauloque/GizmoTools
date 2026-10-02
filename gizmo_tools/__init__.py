@@ -37,12 +37,7 @@ classes = (
     VIEW3D_MT_gizmo_size_menu,
     VIEW3D_OT_gizmo_size,
     VIEW3D_OT_gizmo_move,
-    VIEW3D_OT_rotate_local_x,
-    VIEW3D_OT_rotate_local_nx,
-    VIEW3D_OT_rotate_local_y,
-    VIEW3D_OT_rotate_local_ny,
-    VIEW3D_OT_rotate_local_z,
-    VIEW3D_OT_rotate_local_nz,
+    VIEW3D_OT_gizmo_rotate,
 )
 
 
@@ -114,58 +109,65 @@ def register():
         # ROTATE +X
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_x",
+            "view3d.gizmo_rotate",
             type="LEFT_ARROW",
             alt=True,
             shift=True,
             value="PRESS",
         )
+        kmi.properties.axis = "+X"
 
         # ROTATE -X
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_nx",
+            "view3d.gizmo_rotate",
             type="RIGHT_ARROW",
             alt=True,
             shift=True,
             value="PRESS",
         )
+        kmi.properties.axis = "-X"
 
         # ROTATE +Y
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_y",
+            "view3d.gizmo_rotate",
             type="UP_ARROW",
             alt=True,
             shift=True,
             value="PRESS",
         )
+        kmi.properties.axis = "+Y"
 
         # ROTATE -Y
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_ny",
+            "view3d.gizmo_rotate",
             type="DOWN_ARROW",
             alt=True,
             shift=True,
             value="PRESS",
         )
+        kmi.properties.axis = "-Y"
 
         # ROTATE +Z
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_z", type="PAGE_UP", alt=True, shift=True, value="PRESS"
+            "view3d.gizmo_rotate", type="PAGE_UP", alt=True, shift=True, value="PRESS"
         )
+        kmi.properties.axis = "+Z"
 
         # ROTATE -Z
         km = kc.keymaps.new(name="Window", region_type="WINDOW", space_type="EMPTY")
         kmi = km.keymap_items.new(
-            "view3d.rotate_local_nz",
+            "view3d.gizmo_rotate",
             type="PAGE_DOWN",
             alt=True,
             shift=True,
             value="PRESS",
         )
+        kmi.properties.axis = "-Z"
+
         addon_keymaps.append((km, kmi))
 
 
