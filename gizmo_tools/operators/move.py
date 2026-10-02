@@ -6,15 +6,7 @@ from bpy.types import Operator
 
 from ..bl_logger import logger
 from ..prefs import get_preferences
-
-AXES = {
-    "+X": (1, 0, 0),
-    "-X": (-1, 0, 0),
-    "+Y": (0, 1, 0),
-    "-Y": (0, -1, 0),
-    "+Z": (0, 0, 1),
-    "-Z": (0, 0, -1),
-}
+from .constants import AXES
 
 
 class VIEW3D_OT_gizmo_move(Operator):
